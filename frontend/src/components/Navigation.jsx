@@ -16,7 +16,7 @@ const Navigation = () => {
     if (!getDeveloper) {
       return (
         <>
-          <Link to='/registrarse' className='btn m-1 register-btn'>Registrarse</Link>
+          <Link to='/usuarios' className='btn m-1 register-btn'>Registrarse</Link>
           <Link to='/login' className='btn login-btn'>Iniciar Sesión</Link>
         </>
       )
