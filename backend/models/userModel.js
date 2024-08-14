@@ -16,6 +16,34 @@ const addUser = async ({email, password, rol, lenguage}) => {
   }
 }
 
+const getUserByEmail = async (email) => {
+  try{
+    const query = 'SELECT email FROM usuarios WHERE email = $1';
+    const values = [email];
+    const result = await pool.query(query, values);
+    if (result.rowCount > 0) {
+      return result.rows
+    };
+  } catch (error) {
+    console.log('Error', error.message);
+  }
+}
+
+const getUser = async (email) => {
+  try{
+    const query = 'SELECT * FROM usuarios WHERE email = $1';
+    const values = [email];
+    const result = await pool.query(query, values);
+    if (result.rowCount > 0) {
+      return result.rows[0];
+    };
+  } catch (error) {
+    console.log('Error', error.message);
+  }
+}
+
 export const model = {
-  addUser
+  addUser,
+  getUserByEmail,
+  getUser,
 }
